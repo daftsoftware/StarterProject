@@ -85,3 +85,4 @@ ignore.conf
 
 .ignore
 .vscode/
+*.code-workspace
