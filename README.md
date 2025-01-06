@@ -9,6 +9,8 @@ This project may not be used outside of Unreal projects, the code source is MIT,
 
 ## About
 
+**Currently supported version is Unreal 5.5**, It's possible to backport to 5.4 or earlier but you will need to replace the Custom Engine Content yourself which is described later in this readme.
+
 This uproject uses a few tricks to drastically reduce the size of packaged builds, and essentially disables all plugins in the entire engine (even the ones that aren't able to be turned off by default). Disabling all plugins essentially cuts the legs off the engine and you will have considerable loss in functionality with the benefit of a huge increase of speed in the editor load times for assets and startup, however it can be treated more like an opt-in model where the things you need can be turned back on.
 
 As is suggested by Epic there are things in this project that are an **advanced workflow** and I do not recommend using this project unless you absolutely know what you are doing. It's not reasonable to assume that Epic has tested internally having some of these core engine plugins disabled and therefore you may get crashes upon using certain features with some plugins disabled, therefore in these scenarios debugging and some educated guessing is usually required to figure out which dependency from the engine you need to turn back on.
@@ -53,8 +55,20 @@ Blank Template (No PAK, No IOStore) - 621.9 MB
 Blank Template (PAK + IOStore) - 457.3 MB
 ![image](https://github.com/user-attachments/assets/d503eaac-4911-4485-82c5-616cc94b2d9e)
 
-Daft Minimal Project (No PAK, No IOStore) - 211.8 MB
+Daft Minimal Project **Default** (No PAK, No IOStore) - 211.8 MB
 ![image](https://github.com/user-attachments/assets/aba17a5a-6eb4-42d1-a39a-661286c8bb34)
+
+Daft Minimal Project (PAK + IOStore) - 181.6MB
+![image](https://github.com/user-attachments/assets/cda65650-5a70-4834-a821-de0789a0348e)
+
+Performance / savings of using PAK and IOStore may vary per project, by default it is disabled, however it's very easily to enable in Project Settings > Packaging:
+![image](https://github.com/user-attachments/assets/fde482b4-1c4e-4dc6-be6b-0c5bc2be8b4c)
+
+If you need to change how the engine / editor content is excluded from the cook, it is done in DefaultGame.ini under packaging settings, eg:
+```ini
+[/Script/UnrealEd.ProjectPackagingSettings]
++DirectoriesToNeverCook=(Path="/Engine/EngineMaterials")
+```
 
 ## Editor Speed
 
