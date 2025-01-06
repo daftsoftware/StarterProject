@@ -165,7 +165,7 @@ Defaulty enabled rendering features which were enabled for speed or my opinions 
 
 ## Known Issues
 
-MacOS will crash on startup - This platform requires TextureFormatOodle to be enabled otherwise you get a crash at startup.
+MacOS will crash on startup - This platform requires TextureFormatOodle to be enabled otherwise you get a crash relating to FNVTTCompressor.
 
 ## Thanks
 - Siliex for showing me the cool trick to disable all engine / editor plugins
