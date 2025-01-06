@@ -37,7 +37,7 @@ A few plugins from the engine, while you can turn off, it's not a good idea to d
 
 ## Package Size
 
-**Disclaimer** - It is possible to get the size of a project much smaller than this project offers out of the box. However the goal of this project is to min-max rendering, cpu and IO performance at runtime and improve editor startup times where possible. While the package can be made much smaller using compression, shared shaders, DX11 / OpenGL, or otherwise eliminating the global shader cache (which would kill around 60MB out the box) doing so would generally result in performance reduction or an unsatisfactory or reduced experience for players. Therefore I won't be doing this mods myself but they are easy to do. By default this project also does not use CryptoKeys, PAK or IOStore - 211.8MB is the uncompressed size of the project, and with the equivalent size of a blank project package without PAK or IOStore the size would be 621.9MB.
+**Disclaimer** - It is possible to get the size of a project much smaller than this project offers out of the box. However the goal of this project is to min-max rendering, cpu and IO performance at runtime and improve editor startup times where possible. While the package can be made much smaller using compression, shared shaders, DX11 / OpenGL, or otherwise eliminating the global shader cache (which would kill around 60MB out the box) doing so would generally result in performance reduction or an unsatisfactory or reduced experience for players, however may be desirable for some projects like game jams. Therefore I won't be doing this mods myself but they are easy to do. By default this project also does not use CryptoKeys, PAK or IOStore - 211.8MB is the uncompressed size of the project, and with the equivalent size of a blank project package without PAK or IOStore the size would be 621.9MB.
 
 It's worth noting that most of the mods that have been done in this uproject are highly opinionated, suited primarily for the needs of Daft Software, and not suitable for many projects, especially those in AAA where content pipelines aren't controlled, anarchy reigns, and artists may place engine content into levels, but hopefully should still provide a good jumping off point for your own projects or game jams.
 
@@ -46,6 +46,13 @@ The current size of a brand new blank project being packaged is **457.3MB**
 The current size of the DaftSoftware Minimal Project is **211.8MB**
 
 Uncompressed Daft Minimal Project is **2.16x smaller than compressed blank template and 2.94x smaller than uncompressed blank template.**
+
+## Editor Speed
+
+If we measure in Development Editor config from the start of LaunchEngineLoop to when the Engine Tick Loop starts, which doesn't necessarily represent real world speed of pressing compile to seeing the editor open, but does provide a technical basis to measure the editor speed. We can see that Daft Minimal Project offers a significant speedup to the Editor startup times.
+
+Epic's default "Blank" C++ Template comes in at around **10.9 Seconds** from Init to First Tick.
+Daft Minimal Project comes in around **6.9 Seconds** from Init to First Tick.
 
 ## Project Engine Content
 
@@ -97,6 +104,7 @@ Defaulty enabled rendering features which were enabled for speed or my opinions 
 - Custom Depth + Stencil Buffer
 
 ## Thanks
-- Siliex for showing me the cool trick to disable all plugins <3
+- Siliex for showing me the cool trick to disable all engine / editor plugins
+- Zeblote / Brickadia team for inspiring me to do this in the first place
 - BarronKane for sharing his own research into small uprojects
 - Vori for moral support and for bringing significant attention to this project
