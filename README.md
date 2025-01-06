@@ -62,6 +62,7 @@ Daft Minimal Project (PAK + IOStore) - 181.6MB
 ![image](https://github.com/user-attachments/assets/cda65650-5a70-4834-a821-de0789a0348e)
 
 Performance / savings of using PAK and IOStore may vary per project, by default it is disabled, however it's very easily to enable in Project Settings > Packaging:
+
 ![image](https://github.com/user-attachments/assets/fde482b4-1c4e-4dc6-be6b-0c5bc2be8b4c)
 
 If you need to change how the engine / editor content is excluded from the cook, it is done in DefaultGame.ini under packaging settings, eg:
