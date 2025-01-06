@@ -1,6 +1,5 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+// Copyright (c) 2025 Daft Software.
 
-#include "StarterEditorModule.h"
 #include "Modules/ModuleManager.h"
 #include "Materials/Material.h"
 #include "Misc/Paths.h"
