@@ -163,8 +163,13 @@ Defaulty enabled rendering features which were enabled for speed or my opinions 
 - CSM
 - Custom Depth + Stencil Buffer
 
+## Known Issues
+
+MacOS will crash on startup - This platform requires TextureFormatOodle to be enabled otherwise you get a crash at startup.
+
 ## Thanks
 - Siliex for showing me the cool trick to disable all engine / editor plugins
 - Zeblote / Brickadia team for inspiring me to do this in the first place
 - BarronKane for sharing his own research into small uprojects
 - Vori for moral support and for bringing significant attention to this project
+- Alex Nye for finding solution to startup crash on MacOS
