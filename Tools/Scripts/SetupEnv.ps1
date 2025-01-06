@@ -1,3 +1,5 @@
+# Copyright (c) 2025 Daft Software.
+
 # Setup Environment Script - Provides scripts with paths like engine locations ect.
 
 # Go up 2 directories from this script

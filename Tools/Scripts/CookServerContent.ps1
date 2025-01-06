@@ -1,3 +1,4 @@
+# Copyright (c) 2025 Daft Software.
 
 . $PSScriptRoot/SetupEnv.ps1
 
