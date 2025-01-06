@@ -9,6 +9,8 @@ This project may not be used outside of Unreal projects, the code source is MIT,
 
 ## About
 
+**Currently supported version is Unreal 5.5**, It's possible to backport to 5.4 or earlier but you will need to replace the Custom Engine Content yourself which is described later in this readme.
+
 This uproject uses a few tricks to drastically reduce the size of packaged builds, and essentially disables all plugins in the entire engine (even the ones that aren't able to be turned off by default). Disabling all plugins essentially cuts the legs off the engine and you will have considerable loss in functionality with the benefit of a huge increase of speed in the editor load times for assets and startup, however it can be treated more like an opt-in model where the things you need can be turned back on.
 
 As is suggested by Epic there are things in this project that are an **advanced workflow** and I do not recommend using this project unless you absolutely know what you are doing. It's not reasonable to assume that Epic has tested internally having some of these core engine plugins disabled and therefore you may get crashes upon using certain features with some plugins disabled, therefore in these scenarios debugging and some educated guessing is usually required to figure out which dependency from the engine you need to turn back on.
@@ -35,11 +37,23 @@ A few plugins from the engine, while you can turn off, it's not a good idea to d
 
 **EnhancedInput** - *Not required*, can be turned off if you just prefer to use the legacy input system or a custom one, however I don't recommend using legacy input in UE5 as Epic no longer supports it.
 
+*How do we disable all the plugins if the uproject is almost empty?*
+
+`"DisableEnginePluginsByDefault": true`
+
+This setting essentially instructs the engine to operate on an IYWU basis for plugins, disabling all engine and editor plugins, even the ones hidden in the plugin browser. These plugins can be found under [YourEngineInstall/Engine/Plugins](https://github.com/EpicGames/UnrealEngine/tree/release/Engine/Plugins), a large amount of which are under the [YourEngineInstall/Engine/Plugins/Editor](https://github.com/EpicGames/UnrealEngine/tree/release/Engine/Plugins/Editor) directory. It is advisable to look at these plugins top to bottom to understand exactly what you are disabling by using the project, as most people are going to immediately need to turn some things back on, which you can do by finding the name of their .uplugin and adding them manually in your .uproject file, e.g:
+```json
+{
+  "Name": "EngineAssetDefinitions",
+  "Enabled": true
+},
+```
+
 ## Package Size
 
-**Disclaimer** - It is possible to get the size of a project much smaller than this project offers out of the box. However the goal of this project is to min-max rendering, cpu and IO performance at runtime and improve editor startup times where possible. While the package can be made much smaller using compression, shared shaders, DX11 / OpenGL, or otherwise eliminating the global shader cache (which would kill around 60MB out the box) doing so would generally result in performance reduction or an unsatisfactory or reduced experience for players, however may be desirable for some projects like game jams. Therefore I won't be doing this mods myself but they are easy to do. By default this project also does not use CryptoKeys, PAK or IOStore - 211.8MB is the uncompressed size of the project, and with the equivalent size of a blank project package without PAK or IOStore the size would be 621.9MB.
+**Disclaimer** - It is possible to get the size of a project much smaller than this project offers out of the box. However the goal of this project is to min-max rendering, cpu and IO performance at runtime and improve editor startup times where possible. While the package can be made much smaller using compression, shared shaders, DX11 / OpenGL, or otherwise eliminating the global shader cache (which would kill around 60MB out the box) doing so would generally result in performance reduction or an unsatisfactory or reduced experience for players, however may be desirable for some projects like game jams. Therefore I won't be doing these mods myself, but they are easy to do and [Epic offers a decent guide to do so](https://dev.epicgames.com/documentation/en-us/unreal-engine/reducing-packaged-game-size?application_version=4.27). By default this project also does not use CryptoKeys, PAK or IOStore - 211.8MB is the uncompressed size of the project, and with the equivalent size of a blank project package without PAK or IOStore the size would be 621.9MB.
 
-It's worth noting that most of the mods that have been done in this uproject are highly opinionated, suited primarily for the needs of Daft Software, and not suitable for many projects, especially those in AAA where content pipelines aren't controlled, anarchy reigns, and artists may place engine content into levels, but hopefully should still provide a good jumping off point for your own projects or game jams.
+It's worth noting that most of the mods that have been done in this uproject are highly opinionated, suited primarily for the needs of Daft Software, and not suitable for many projects, especially those in AAA where due to large teams it may not be possible or reasonable to have very tightly controlled content pipelines, and artists may place engine content into levels, but hopefully should still provide a good jumping off point for your own projects or game jams. In this scenario I would recommend adding validators and aggressive asset referencing policies to control which Engine Content is allowed to be included to the project.
 
 As of Unreal 5.5.2:
 The current size of a brand new blank project being packaged is **457.3MB**
@@ -47,16 +61,44 @@ The current size of the DaftSoftware Minimal Project is **211.8MB**
 
 Uncompressed Daft Minimal Project is **2.16x smaller than compressed blank template and 2.94x smaller than uncompressed blank template.**
 
+Blank Template (No PAK, No IOStore) - 621.9 MB
+![image](https://github.com/user-attachments/assets/b1f8c3fb-ada3-4c5e-8e7e-4b92baaca903)
+
+Blank Template (PAK + IOStore) - 457.3 MB
+![image](https://github.com/user-attachments/assets/d503eaac-4911-4485-82c5-616cc94b2d9e)
+
+Daft Minimal Project **Default** (No PAK, No IOStore) - 211.8 MB
+![image](https://github.com/user-attachments/assets/aba17a5a-6eb4-42d1-a39a-661286c8bb34)
+
+Daft Minimal Project (PAK + IOStore) - 181.6MB
+![image](https://github.com/user-attachments/assets/cda65650-5a70-4834-a821-de0789a0348e)
+
+Performance / savings of using PAK and IOStore may vary per project, by default it is disabled, however it's very easily to enable in Project Settings > Packaging:
+
+![image](https://github.com/user-attachments/assets/fde482b4-1c4e-4dc6-be6b-0c5bc2be8b4c)
+
+If you need to change how the engine / editor content is excluded from the cook, it is done in DefaultGame.ini under packaging settings, eg:
+```ini
+[/Script/UnrealEd.ProjectPackagingSettings]
++DirectoriesToNeverCook=(Path="/Engine/EngineMaterials")
+```
+
 ## Editor Speed
 
 If we measure in Development Editor config from the start of LaunchEngineLoop to when the Engine Tick Loop starts, which doesn't necessarily represent real world speed of pressing compile to seeing the editor open, but does provide a technical basis to measure the editor speed. We can see that Daft Minimal Project offers a significant speedup to the Editor startup times.
 
 Epic's default "Blank" C++ Template comes in at around **10.9 Seconds** from Init to First Tick.
+![image](https://github.com/user-attachments/assets/11a5346e-d66f-42fb-8231-776dd5a72acc)
+
 Daft Minimal Project comes in around **6.9 Seconds** from Init to First Tick.
+![image](https://github.com/user-attachments/assets/a75394bd-a131-4a76-b7b2-d2c29dd7ac6a)
 
 ## Project Engine Content
 
 As described earlier, in this project we deploy a bit of a cheeky trick to move important Engine content into Project level so that it's more managable and you can IWYU. The engine itself has the concept of "Special Engine Materials", if you ever tried opening the world grid material in the Engine Content for example, then you will be familiar with the warning where Epic tells you basically don't modify these unless you know what you're doing.
+
+![image](https://github.com/user-attachments/assets/2231744a-becc-4f69-92d6-549c63ca83fa)
+
 
 This is essentially because these are materials loaded into globals which are used by all systems in the entire engine, including Nanite, Niagara, Static Meshes, basically everything that might at any time be able to display a null material. However because of this they are particularly tricky to edit, since you are modifying stuff that is actively always in VRAM or being utilized, so editing these directly usually causes a crash.
 
@@ -72,16 +114,24 @@ One very nice benefit this affords us is that we can actually directly change th
 ;DefaultMaterialName=/Game/Engine/Materials/WorldGridMaterial.WorldGridMaterial
 ```
 
-When adding additional content from Engine Materials to Project Contnet, you cannot just directly copy the assets across and add them in the ini. This is because internally Epic has a flag which is not trivial to set by accident and it is required for any of these global materials to function correctly, when you copy engine content to project level Epic automatically removes this flag because they assume you're just using the material business as usual and wanted to use it like a normal material.
+When adding additional content from Engine Materials to Project Content, you cannot just directly copy the assets across and add them in the ini. This is because internally Epic has a flag which is not trivial to set by accident and it is required for any of these global materials to function correctly, when you copy engine content to project level Epic automatically removes this flag because they assume you're just using the material business as usual and wanted to use it like a normal material.
 
 You can enable this flag on assets you add to the project with a console command:
 `Daft.MakeMaterialSpecial /Game/Engine/Materials/WorldGridMaterial`
 
 You can find the correct path you need by locating the material asset you copied, then right clicking and doing "Copy Package Path" or pressing Ctrl+Alt+C while selecting it.
+![image](https://github.com/user-attachments/assets/4c200498-1102-41ee-8dd7-0386e4e7d89e)
 
 Then you must locate the ini to override from BaseEngine.ini and add it into your DefaultEngine.ini with the project level path rather than the engine one it defaults to.
 
 ## Rendering Features
+
+**Important Note**:
+
+While Volumetric Clouds themselves have not been disabled, the default materials have as by default they consume nearly 20MB! When using Volumetric Clouds, set them to use a custom material, copy the default cloud materials to project level, or just remove the following line from DefaultGame.ini if you want to use the base engine sky materials at the cost of 20MB package size:
+```ini
++DirectoriesToNeverCook=(Path="/Engine/EngineSky/VolumetricClouds")
+```
 
 Defaultly disabled rendering features which were disabled for speed or my opinions but you may want to enable include:
 - Nanite
