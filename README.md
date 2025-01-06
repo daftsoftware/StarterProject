@@ -124,6 +124,16 @@ You can find the correct path you need by locating the material asset you copied
 
 Then you must locate the ini to override from BaseEngine.ini and add it into your DefaultEngine.ini with the project level path rather than the engine one it defaults to.
 
+A very easy and quick 5MB that can be reclaimed is by removing blue noise from the engine by commenting out the following 2 lines in DefaultEngine.ini, however I usually like to use this on my projects and it's one of those things where provided you do use it, you likely aren't going to do it much better than the built in engine one, so for examples sake I have left it there, feel free to get rid of it if you won't bother using it.
+
+```ini
+[/Script/Engine.Engine]
+;BlueNoiseScalarTextureName=/Game/Engine/Resources/FastBlueNoise_scalar_128x128x64.FastBlueNoise_scalar_128x128x64
+;BlueNoiseVec2TextureName=/Game/Engine/Resources/FastBlueNoise_vec2_128x128x64.FastBlueNoise_vec2_128x128x64
+```
+
+Similarly, you can bring back various engine textures if they are required by copying them from Engine Content to Project Content and then just adding whichever ones you need from BaseEngine.ini to DefaultEngine.ini and changing the path to point at the one in the project.
+
 ## Rendering Features
 
 **Important Note**:
