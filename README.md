@@ -47,6 +47,15 @@ The current size of the DaftSoftware Minimal Project is **211.8MB**
 
 Uncompressed Daft Minimal Project is **2.16x smaller than compressed blank template and 2.94x smaller than uncompressed blank template.**
 
+Blank Template (No PAK, No IOStore)
+![image](https://github.com/user-attachments/assets/b1f8c3fb-ada3-4c5e-8e7e-4b92baaca903)
+
+Blank Template (PAK + IOStore)
+![image](https://github.com/user-attachments/assets/d503eaac-4911-4485-82c5-616cc94b2d9e)
+
+Daft Minimal Project (No PAK, No IOStore)
+![image](https://github.com/user-attachments/assets/aba17a5a-6eb4-42d1-a39a-661286c8bb34)
+
 ## Editor Speed
 
 If we measure in Development Editor config from the start of LaunchEngineLoop to when the Engine Tick Loop starts, which doesn't necessarily represent real world speed of pressing compile to seeing the editor open, but does provide a technical basis to measure the editor speed. We can see that Daft Minimal Project offers a significant speedup to the Editor startup times.
