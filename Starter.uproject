@@ -22,10 +22,6 @@
 			"Enabled": true
 		},
 		{
-			"Name": "PluginBrowser",
-			"Enabled": true
-		},
-		{
 			"Name": "ContentBrowserAssetDataSource",
 			"Enabled": true
 		},
@@ -34,11 +30,11 @@
 			"Enabled": true
 		},
 		{
-			"Name": "TraceUtilities",
+			"Name": "PluginBrowser",
 			"Enabled": true
 		},
 		{
-			"Name": "ColorGrading",
+			"Name": "TraceUtilities",
 			"Enabled": true
 		},
 		{
