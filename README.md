@@ -90,6 +90,7 @@ You can enable this flag on assets you add to the project with a console command
 `Daft.MakeMaterialSpecial /Game/Engine/Materials/WorldGridMaterial`
 
 You can find the correct path you need by locating the material asset you copied, then right clicking and doing "Copy Package Path" or pressing Ctrl+Alt+C while selecting it.
+![image](https://github.com/user-attachments/assets/4c200498-1102-41ee-8dd7-0386e4e7d89e)
 
 Then you must locate the ini to override from BaseEngine.ini and add it into your DefaultEngine.ini with the project level path rather than the engine one it defaults to.
 
