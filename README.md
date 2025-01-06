@@ -37,6 +37,18 @@ A few plugins from the engine, while you can turn off, it's not a good idea to d
 
 **EnhancedInput** - *Not required*, can be turned off if you just prefer to use the legacy input system or a custom one, however I don't recommend using legacy input in UE5 as Epic no longer supports it.
 
+*How do we disable all the plugins if the uproject is almost empty?*
+
+`"DisableEnginePluginsByDefault": true`
+
+This setting essentially instructs the engine to operate on an IYWU basis for plugins, disabling all engine and editor plugins, even the ones hidden in the plugin browser. These plugins can be found under [YourEngineInstall/Engine/Plugins](https://github.com/EpicGames/UnrealEngine/tree/release/Engine/Plugins), a large amount of which are under the [YourEngineInstall/Engine/Plugins/Editor](https://github.com/EpicGames/UnrealEngine/tree/release/Engine/Plugins/Editor) directory. It is advisable to look at these plugins top to bottom to understand exactly what you are disabling by using the project, as most people are going to immediately need to turn some things back on, which you can do by finding the name of their .uplugin and adding them manually in your .uproject file, e.g:
+```json
+{
+  "Name": "EngineAssetDefinitions",
+  "Enabled": true
+},
+```
+
 ## Package Size
 
 **Disclaimer** - It is possible to get the size of a project much smaller than this project offers out of the box. However the goal of this project is to min-max rendering, cpu and IO performance at runtime and improve editor startup times where possible. While the package can be made much smaller using compression, shared shaders, DX11 / OpenGL, or otherwise eliminating the global shader cache (which would kill around 60MB out the box) doing so would generally result in performance reduction or an unsatisfactory or reduced experience for players, however may be desirable for some projects like game jams. Therefore I won't be doing this mods myself but they are easy to do. By default this project also does not use CryptoKeys, PAK or IOStore - 211.8MB is the uncompressed size of the project, and with the equivalent size of a blank project package without PAK or IOStore the size would be 621.9MB.
