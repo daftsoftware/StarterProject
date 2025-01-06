@@ -47,13 +47,13 @@ The current size of the DaftSoftware Minimal Project is **211.8MB**
 
 Uncompressed Daft Minimal Project is **2.16x smaller than compressed blank template and 2.94x smaller than uncompressed blank template.**
 
-Blank Template (No PAK, No IOStore)
+Blank Template (No PAK, No IOStore) - 621.9 MB
 ![image](https://github.com/user-attachments/assets/b1f8c3fb-ada3-4c5e-8e7e-4b92baaca903)
 
-Blank Template (PAK + IOStore)
+Blank Template (PAK + IOStore) - 457.3 MB
 ![image](https://github.com/user-attachments/assets/d503eaac-4911-4485-82c5-616cc94b2d9e)
 
-Daft Minimal Project (No PAK, No IOStore)
+Daft Minimal Project (No PAK, No IOStore) - 211.8 MB
 ![image](https://github.com/user-attachments/assets/aba17a5a-6eb4-42d1-a39a-661286c8bb34)
 
 ## Editor Speed
