@@ -52,7 +52,10 @@ Uncompressed Daft Minimal Project is **2.16x smaller than compressed blank templ
 If we measure in Development Editor config from the start of LaunchEngineLoop to when the Engine Tick Loop starts, which doesn't necessarily represent real world speed of pressing compile to seeing the editor open, but does provide a technical basis to measure the editor speed. We can see that Daft Minimal Project offers a significant speedup to the Editor startup times.
 
 Epic's default "Blank" C++ Template comes in at around **10.9 Seconds** from Init to First Tick.
+![image](https://github.com/user-attachments/assets/11a5346e-d66f-42fb-8231-776dd5a72acc)
+
 Daft Minimal Project comes in around **6.9 Seconds** from Init to First Tick.
+![image](https://github.com/user-attachments/assets/a75394bd-a131-4a76-b7b2-d2c29dd7ac6a)
 
 ## Project Engine Content
 
