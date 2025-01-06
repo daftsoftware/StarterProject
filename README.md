@@ -85,6 +85,9 @@ Daft Minimal Project comes in around **6.9 Seconds** from Init to First Tick.
 
 As described earlier, in this project we deploy a bit of a cheeky trick to move important Engine content into Project level so that it's more managable and you can IWYU. The engine itself has the concept of "Special Engine Materials", if you ever tried opening the world grid material in the Engine Content for example, then you will be familiar with the warning where Epic tells you basically don't modify these unless you know what you're doing.
 
+![image](https://github.com/user-attachments/assets/2231744a-becc-4f69-92d6-549c63ca83fa)
+
+
 This is essentially because these are materials loaded into globals which are used by all systems in the entire engine, including Nanite, Niagara, Static Meshes, basically everything that might at any time be able to display a null material. However because of this they are particularly tricky to edit, since you are modifying stuff that is actively always in VRAM or being utilized, so editing these directly usually causes a crash.
 
 You can find a total list of all of these engine contents in BaseEngine.ini and in our case the ones that have been overridden inside DefaultEngine.ini like so:
@@ -99,7 +102,7 @@ One very nice benefit this affords us is that we can actually directly change th
 ;DefaultMaterialName=/Game/Engine/Materials/WorldGridMaterial.WorldGridMaterial
 ```
 
-When adding additional content from Engine Materials to Project Contnet, you cannot just directly copy the assets across and add them in the ini. This is because internally Epic has a flag which is not trivial to set by accident and it is required for any of these global materials to function correctly, when you copy engine content to project level Epic automatically removes this flag because they assume you're just using the material business as usual and wanted to use it like a normal material.
+When adding additional content from Engine Materials to Project Content, you cannot just directly copy the assets across and add them in the ini. This is because internally Epic has a flag which is not trivial to set by accident and it is required for any of these global materials to function correctly, when you copy engine content to project level Epic automatically removes this flag because they assume you're just using the material business as usual and wanted to use it like a normal material.
 
 You can enable this flag on assets you add to the project with a console command:
 `Daft.MakeMaterialSpecial /Game/Engine/Materials/WorldGridMaterial`
