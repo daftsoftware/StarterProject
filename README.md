@@ -126,6 +126,13 @@ Then you must locate the ini to override from BaseEngine.ini and add it into you
 
 ## Rendering Features
 
+**Important Note**:
+
+While Volumetric Clouds themselves have not been disabled, the default materials have as by default they consume nearly 20MB! When using Volumetric Clouds, set them to use a custom material, copy the default cloud materials to project level, or just remove the following line from DefaultGame.ini if you want to use the base engine sky materials at the cost of 20MB package size:
+```ini
++DirectoriesToNeverCook=(Path="/Engine/EngineSky/VolumetricClouds")
+```
+
 Defaultly disabled rendering features which were disabled for speed or my opinions but you may want to enable include:
 - Nanite
 - Lumen
