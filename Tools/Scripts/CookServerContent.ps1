@@ -3,7 +3,7 @@
 . $PSScriptRoot/SetupEnv.ps1
 
 & $uat BuildCookRun `
-  	-target=FPSServer `
+  	-target=StarterServer `
   	-project="$uprojectPath" `
   	-targetplatform=Win64 `
   	-serverconfig=Development `

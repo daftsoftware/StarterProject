@@ -3,7 +3,7 @@
 . $PSScriptRoot/SetupEnv.ps1
 
 & $uat BuildCookRun `
-  	-target=FPSGame `
+  	-target=StarterGame `
   	-project="$uprojectPath" `
   	-targetplatform=Win64 `
   	-clientconfig=Development `

@@ -49,5 +49,4 @@ function GenerateProjectFiles($uproject) {
     }
 }
 
-# Run the function with your project
 GenerateProjectFiles $uproject
