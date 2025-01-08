@@ -73,7 +73,7 @@ Daft Minimal Project **Default** (No PAK, No IOStore) - 211.8 MB
 Daft Minimal Project (PAK + IOStore) - 181.6MB
 ![image](https://github.com/user-attachments/assets/cda65650-5a70-4834-a821-de0789a0348e)
 
-Performance / savings of using PAK and IOStore may vary per project, by default it is disabled, however it's very easily to enable in Project Settings > Packaging:
+Performance / savings of using PAK and IOStore may vary per project, by default it is disabled, however it's very easily enabled in Project Settings > Packaging:
 
 ![image](https://github.com/user-attachments/assets/fde482b4-1c4e-4dc6-be6b-0c5bc2be8b4c)
 
