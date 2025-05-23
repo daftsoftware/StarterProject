@@ -22,6 +22,7 @@ This project also defaultly kills the vast majority of the stock engine content.
 ## Fast Rendering
 
 You can access faster rendering for Windows using DirectX Mobile on the fastrendering branch which has both the base lightweight project available in main branch but also a bunch of very aggressive optimizations and disabled rendering features yielding high performance usually in the realm of 10x increase.
+[Look here for a full list of which features are available / unavailable for mobile rendering](https://dev.epicgames.com/documentation/en-us/unreal-engine/rendering-features-for-mobile-games-in-unreal-engine).
 
 ## Plugin Dependencies
 
