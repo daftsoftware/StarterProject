@@ -17,8 +17,14 @@ public class StarterGameTarget : TargetRules
 
 		//if (Target.Type != TargetType.Editor)
 		//{
-			//Target.DisablePlugins.Add("OpenImageDenoise");
-			//Target.DisablePlugins.Add("MeshModelingTools");
+		//Target.DisablePlugins.Add("OpenImageDenoise");
+		//Target.DisablePlugins.Add("MeshModelingTools");
 		//}
+		
+		// Allow profiling test and shipping builds.
+		bAllowProfileGPUInTest = true;
+		bUseConsoleInShipping = true;
+		bUseExecCommandsInShipping = true;
+		GlobalDefinitions.Add("FORCE_USE_STATS=1");
 	}
 }
