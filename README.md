@@ -19,6 +19,10 @@ This project also defaultly kills the vast majority of the stock engine content.
 
 **Disclaimer** - This project is also primarily targeting **Win64** platform, other platforms (eg MacOS or Android) have not been tested and probably crash due to missing plugin dependencies or required content, if you enable new platforms you will likely need to debug missing dependencies or unsupported settings.
 
+## Fast Rendering
+
+You can access faster rendering for Windows using DirectX Mobile on the fastrendering branch which has both the base lightweight project available in main branch but also a bunch of very aggressive optimizations and disabled rendering features yielding high performance usually in the realm of 10x increase.
+
 ## Plugin Dependencies
 
 A few plugins from the engine, while you can turn off, it's not a good idea to do so because you basically chop the arms and legs off the engine, or otherwise cause instability. The following plugins are:
