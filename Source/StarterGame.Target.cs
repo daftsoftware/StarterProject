@@ -11,15 +11,6 @@ public class StarterGameTarget : TargetRules
 		DefaultBuildSettings = BuildSettingsVersion.Latest;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
 		ExtraModuleNames.Add("StarterRuntime");
-		//BuildEnvironment = TargetBuildEnvironment.Unique;
-
-		//bCompilePython = false;
-
-		//if (Target.Type != TargetType.Editor)
-		//{
-		//Target.DisablePlugins.Add("OpenImageDenoise");
-		//Target.DisablePlugins.Add("MeshModelingTools");
-		//}
 		
 		// Allow profiling test and shipping builds.
 		//bAllowProfileGPUInTest = true;

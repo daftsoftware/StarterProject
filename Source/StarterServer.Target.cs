@@ -12,8 +12,5 @@ public class StarterServerTarget : TargetRules
 		DefaultBuildSettings = BuildSettingsVersion.Latest;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
 		ExtraModuleNames.Add("StarterRuntime");
-		//BuildEnvironment = TargetBuildEnvironment.Unique;
-
-		//bCompilePython = false;
 	}
 }

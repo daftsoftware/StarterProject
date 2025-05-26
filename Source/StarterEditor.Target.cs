@@ -10,9 +10,6 @@ public class StarterEditorTarget : TargetRules
 		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.V5;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_5;
-		//BuildEnvironment = TargetBuildEnvironment.Unique;
-
-		//bCompilePython = false;
 
 		ExtraModuleNames.AddRange(new string[]
 		{
