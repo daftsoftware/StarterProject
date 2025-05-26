@@ -1,6 +1,6 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "{CF5BD729-4BA4-7769-C10F-E090B84480CB}",
+	"EngineAssociation": "5.6",
 	"Category": "",
 	"Description": "",
 	"DisableEnginePluginsByDefault": true,
