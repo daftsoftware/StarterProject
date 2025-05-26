@@ -9,7 +9,7 @@ This project may not be used outside of Unreal projects, the code source is MIT,
 
 ## About
 
-**Currently supported version is Unreal 5.5**, It's possible to backport to 5.4 or earlier but you will need to replace the Custom Engine Content yourself which is described later in this readme.
+**Currently supported versions are Unreal 5.5 and Unreal 5.6**, It's possible to backport to 5.4 or earlier but you will need to replace the Custom Engine Content yourself which is described later in this readme.
 
 This uproject uses a few tricks to drastically reduce the size of packaged builds, and essentially disables all plugins in the entire engine (even the ones that aren't able to be turned off by default). Disabling all plugins essentially cuts the legs off the engine and you will have considerable loss in functionality with the benefit of a huge increase of speed in the editor load times for assets and startup, however it can be treated more like an opt-in model where the things you need can be turned back on.
 
