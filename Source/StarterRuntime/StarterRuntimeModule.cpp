@@ -2,4 +2,4 @@
 
 #include "Modules/ModuleManager.h"
 
-IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, StarterRuntime, "StarterRuntime" );
+IMPLEMENT_PRIMARY_GAME_MODULE(FDefaultGameModuleImpl, StarterRuntime, "StarterRuntime" );

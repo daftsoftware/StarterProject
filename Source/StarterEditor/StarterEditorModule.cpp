@@ -41,4 +41,4 @@ namespace Daft
     ));
 }
 
-IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, StarterEditor, "StarterEditor" );
+IMPLEMENT_MODULE(FDefaultModuleImpl, StarterEditor);

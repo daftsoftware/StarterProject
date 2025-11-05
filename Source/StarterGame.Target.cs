@@ -11,11 +11,5 @@ public class StarterGameTarget : TargetRules
 		DefaultBuildSettings = BuildSettingsVersion.Latest;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
 		ExtraModuleNames.Add("StarterRuntime");
-		
-		// Allow profiling test and shipping builds.
-		//bAllowProfileGPUInTest = true;
-		//bUseConsoleInShipping = true;
-		//bUseExecCommandsInShipping = true;
-		//GlobalDefinitions.Add("FORCE_USE_STATS=1");
 	}
 }

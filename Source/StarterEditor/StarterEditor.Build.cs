@@ -11,15 +11,12 @@ public class StarterEditor : ModuleRules
 		PublicDependencyModuleNames.AddRange(new string[]
 		{
 			"Core",
-			"CoreUObject",
-			"Engine",
-			"InputCore",
-			"EnhancedInput"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[]
 		{
-
+			"CoreUObject",
+			"Engine",
 		});
 	}
 }
